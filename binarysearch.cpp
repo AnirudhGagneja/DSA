@@ -42,6 +42,7 @@ int main()
     if(binary(a,n,val)!=-1){
         cout<<binary(a,n,val)<<endl;
     }
-    cout<<linearsearch(a,n,val);
+    cout<<linearsearch(a,n,val)<<endl;
+    cout<<linearsearch(a,n,4);
     return 0;
 }

@@ -76,8 +76,6 @@ void pyrammidpattern(int count){
             /* code */
         }
         
-        
-        
         /* code */
         cout<<endl;
     }
