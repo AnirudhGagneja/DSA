@@ -200,13 +200,14 @@ void hollowsquare(int count){
     }
     
 }
+
 int main() {
     // squarepattern(4);
     // trianglepattern(4);
     // invertedtri(4);
-    // pyrammidpattern(4);
+    pyrammidpattern(4);
     // hollowdiamond(4);
     // hollowdiagram(4);
-    hollowsquare(6);
+    // hollowsquare(6);
     return 0;
 }
