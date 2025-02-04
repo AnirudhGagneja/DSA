@@ -9,7 +9,7 @@ int sumcheck(int a[], int n, int sum)
         {
             if ((a[i] + a[j]) == sum)
             {
-                cout<<a[i]<<" "<<a[j]<<endl;
+                cout<<"Value is the sum of "<<a[i]<<" and "<<a[j]<<endl;
                 sumpresent = true;
                 break;
             }
