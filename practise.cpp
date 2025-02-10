@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 using namespace std;
 
 bool prime(int n)
@@ -260,6 +261,17 @@ void startriangle(int count)
         /* code */
     }
 }
+int poweroftwo(int count){
+    int ans=-1;
+   \
+    if (count>0 && (count&(count-1)==0))
+    {
+         ans=1;
+        /* code */
+    }
+    
+    return ans;
+}
 int main()
 {
     // int n = 15;
@@ -278,7 +290,8 @@ int main()
     // invertedtriangle(4);
     // pyramidpattern(4);
     // hollowdiamond(4);
-    startriangle(7);
+    // startriangle(7);
+    // cout<<poweroftwo(7)<<endl;
 
     return 0;
 }
