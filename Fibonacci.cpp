@@ -11,7 +11,13 @@ int fib(int n)
         return fib(n - 2) + fib(n - 1);
     }
 }
-
+// int subsetsum(int arr[], int n){
+//     if (arr[])
+//     {
+//         /* code */
+//     }
+    
+// }
 int main()
 {
 

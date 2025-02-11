@@ -272,16 +272,20 @@ int poweroftwo(int count){
     
     return ans;
 }
+void singlenumber(vector<int> vec){
+    
+}
+
 int main()
 {
-    int n = 15;
-    for (int i = 0; i < n; i++)
-    {
-        if (prime(i))
-        {
-            cout<<i<<" ";
-        }
-    }
+    // int n = 15;
+    // for (int i = 0; i < n; i++)
+    // {
+    //     if (prime(i))
+    //     {
+    //         cout<<i<<" ";
+    //     }
+    // }
     // cout<<sumdiv3(n)<<endl;
     // cout<<fact(5)<<endl;
     // squarepattern(3);
