@@ -1,6 +1,7 @@
 #include <iostream>
 #include <math.h>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 bool prime(int n)
@@ -388,6 +389,7 @@ void majorityelement( vector <int> & vec){
                 /* code */
             }
             
+            
         }
         if (freq>n)
         {
@@ -397,6 +399,61 @@ void majorityelement( vector <int> & vec){
         }
         
     }
+}
+int majorityelementbysort(vector <int> &vec){
+    
+    sort(vec.begin(), vec.end());
+    
+    int freq=1,n=vec.size(),ans=0;
+    for (int i = 1; i < n; i++)
+    {
+        if (vec[i] == vec[i-1])
+        {
+            freq++;
+            /* code */
+        }
+        else{
+            freq=1;
+        }
+        if (freq>n/2)
+        {
+            ans=vec[i];
+            /* code */
+        }
+        
+        /* code */
+    }
+    return ans;
+}
+// 1,2,1,2,2,2
+int moorevotingmethod(vector <int> &vec){
+    int count=vec.size();
+    int freq=0,ans=0;
+    for (int i = 0; i < count; i++)
+    {
+        if (freq==0)
+        {
+            ans=vec[i];
+            /* code */
+        }
+        
+        if (ans==vec[i])
+        {
+            freq++;
+            /* code */
+        }
+        else{
+            freq--;
+        }
+        if (freq>count/2)
+        {
+            ans=vec[i];
+            /* code */
+        }
+        
+        /* code */
+    }
+    return ans;
 }
 int main()
 {
@@ -431,6 +488,8 @@ int main()
     // cout<<maxsubarraysum(arr,n)<<endl; //O(n^2)
     // cout<<kadanestheorm(arr,n)<<endl;//O(n)
     // pairsum(arr,n,9);
-    majorityelement(vec);
+    // majorityelement(vec);
+    // cout<<majorityelementbysort(vec);
+    cout<<moorevotingmethod(vec);
     return 0;
 }
