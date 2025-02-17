@@ -455,6 +455,153 @@ int moorevotingmethod(vector <int> &vec){
     }
     return ans;
 }
+double power (double x , int n){
+    long bf=n;
+    if(x==0) return 0.0;
+    if(n==0) return 1.0;
+    if(x==-1 && n%2 == 0) return 1.0;
+    if(x==-1 && n%2 != 0) return -1.0; 
+    if(x==1) return 1.0;
+    double ans=1;
+    if(bf<0){
+        x=1/x;
+        bf = -bf;
+    }
+    while (bf>0)
+    {
+        if (bf%2==1)
+        {
+            ans*=x;
+            /* code */
+        }
+        
+        x*=x;
+        bf/=2;
+        
+    }
+    
+    return ans;
+}
+int stocksproblem(vector <int> &prices){
+    int buying = prices[0],maxprofit=0;
+
+    for (int i = 1; i < prices.size(); i++)
+    {
+        int selling = prices[i];
+        
+        if ((selling - buying )>maxprofit)
+        {
+            maxprofit= selling-buying;
+        }
+        if(selling<buying){
+            buying=selling;
+        }
+
+    }
+    // cout<<a<<" "<<b;
+    return maxprofit;
+    
+}
+int watercontainer(vector <int> &vec){
+    int h,w,area,maxwater=0;
+    // for (int i = 0; i < vec.size()-1; i++)
+    // {
+    //     for (int j = i+1; j < vec.size(); j++)
+    //     {
+    //         w = j-i;
+    //         h = min(vec[j],vec[i]);
+    //         area =w*h;
+    //         if (area>maxwater)
+    //         {
+    //              maxwater =area;
+    //             /* code */
+    //         }
+            
+    //         /* code */
+    //     }
+        
+    //     /* code */
+    // }
+
+
+    // by 2 pointer 
+
+
+    int i=0,j=vec.size()-1;
+    while (i<j)
+    {
+        h = min(vec[i],vec[j]);
+        w = j-i;
+        area = h*w;
+        if (area>maxwater)
+        {
+            maxwater = area;
+            
+            
+        }
+        if (vec[i]>vec[j])
+            {
+                j--;
+                /* code */
+            }
+            else{
+                i++;
+            }
+        
+        
+        
+        
+    }
+    
+    return maxwater;
+}
+void productexceptself(vector <int> &vec){
+
+    vector<int> ans(vec.size(),1);
+    vector<int> prefix(vec.size() , 1);
+    vector<int> suffix(vec.size(),1);
+    prefix[0]=1;
+    for (int i = 1; i < vec.size(); i++)
+    {
+        prefix[i] = prefix[i-1]*vec[i-1];
+        /* code */
+    }
+    suffix[vec.size()-1]=1;
+    for (int i = vec.size()-2; i >=0; i--)
+    {
+        suffix[i] = suffix[i+1]*vec[i+1];
+        /* code */
+    }
+    for (int i = 0; i < vec.size(); i++)
+    {
+        ans[i] = prefix[i]*suffix[i];
+        /* code */
+    }
+    
+    // for (int i = 0; i < vec.size(); i++)
+    // {
+    //     int product=1;
+    //     for(int j = 0 ; j<vec.size() ; j++ ){
+    //         if (i!=j)
+    //         {
+    //             product*=vec[j];
+                
+    //             /* code */
+    //         }
+    //         ans[i]=product;
+    //     }
+    //     /* code */
+    // }
+    for (int i = 0; i < vec.size(); i++)
+    {
+        cout<<ans[i]<<" ";        /* code */
+    }
+    
+    
+}
+
+
+
 int main()
 {
     // int n = 15;
@@ -490,6 +637,13 @@ int main()
     // pairsum(arr,n,9);
     // majorityelement(vec);
     // cout<<majorityelementbysort(vec);
-    cout<<moorevotingmethod(vec);
+    // cout<<moorevotingmethod(vec);
+    // int a=3;
+    // cout<<power(a,4);
+    vector <int> prices = {7,3,5,2};
+    // cout<<stocksproblem(prices)<<endl;
+    // cout<<watercontainer(prices);
+    // cout<<min(1,1);
+    productexceptself(prices);
     return 0;
 }
