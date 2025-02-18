@@ -51,16 +51,16 @@ int linearsearchvector(vector<int> &vac , int val){
 }
 int main()
 {
-    // int a[]={2,3,4,5,6,7,8};
-    // int n = sizeof(a)/sizeof(a[0]);
-    // int val=8;
-    // if(binary(a,n,val)!=-1){
-    //     cout<<binary(a,n,val)<<endl;
-    // }
+    int a[]={2,3,4,5,6,7,8};
+    int n = sizeof(a)/sizeof(a[0]);
+    int val=8;
+    if(binary(a,n,val)!=-1){
+        cout<<binary(a,n,val)<<endl;
+    }
     // cout<<linearsearch(a,n,val)<<endl;
     // cout<<linearsearch(a,n,4);
-    vector <int> vec = {2,4,5,345,7,24,5};
-    int val=34567;
-    cout<<linearsearchvector(vec, val)<<endl;
+    // vector <int> vec = {2,4,5,345,7,24,5};
+    // int val=34567;
+    // cout<<linearsearchvector(vec, val)<<endl;
     return 0;
 }
