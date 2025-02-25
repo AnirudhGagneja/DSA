@@ -599,8 +599,127 @@ void productexceptself(vector <int> &vec){
     
     
 }
+int bsbyrecursion(int arr[] ,int target, int first , int last ){
+    int mid = (first+last)/2;
+    if (arr[mid] == target)
+    {
+        return mid;
+        /* code */
+    }
+    else if (arr[mid] > target)
+    {
+        return bsbyrecursion(arr , target , first , mid-1);
+        /* code */
+    }
+    else return bsbyrecursion(arr,target,mid+1,last);
+
+    
+    
+}
+int searchinrotatedsortedarray(int arr[] , int first , int end , int target){
+    while (first<=end)
+    {
+        int mid = end + (first-end)/2;
+        if (arr[mid] == target)
+        {
+            return mid;
+            /* code */
+        }
+        if(arr[first]<=arr[mid]){
+            //left sorted
+            }
+            else{
+                //right sorted
+            }
 
 
+
+
+
+
+
+    //     else if (arr[mid] > target && arr[first] > target)
+    //     {
+    //         first = mid+1;
+    //         /* code */
+    //     }
+    //     else if (arr[mid] < target && arr[end] < target )
+    //     {
+    //         end= mid-1;
+    //         /* code */
+    //     }
+    //     /* code */
+    // }
+    return -1;
+}}
+int peakelement(vector <int>  &arr){
+    int n = arr.size();
+    int st=1,end=n-2;
+    while (st<=end)
+    {
+        int mid = st + (end-st)/2;
+        if (arr[mid-1]<arr[mid]&& arr[mid]>arr[mid+1])
+        {
+            return mid;
+        }
+        else if (arr[mid-1]<arr[mid])
+        {
+            st=mid+1;
+        }
+        else{
+            end=mid-1;
+        }
+    }
+    return -1;
+}
+
+
+int singleelementinasortedarray(vector <int> &vec){
+    //brute force 
+    int count = vec.size();
+    // for (int i = 0; i < count; i++)
+    // {
+    //     if (vec[i] != vec[i+1] && vec[i]!=vec[i-1])
+    //     {
+    //         return vec[i];
+    //         /* code */
+    //     }
+        
+    //     /* code */
+    // }
+    int st=0,end=count-1;
+    while (st<=end)
+    {
+        int mid = st + (end-st)/2;
+        if (vec[mid]!=vec[mid-1] && vec[mid]!=vec[mid+1])
+        {
+            return mid;
+            /* code */
+        }
+        else if (vec[mid-1]==vec[mid])
+        {
+            end = mid-2;
+            /* code */
+        }
+        else{
+            st = mid+2;
+        }
+        
+
+        /* code */
+    }
+    
+
+
+
+    return -1;
+}
+int factorial(int n) {
+    if (n <= 1) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
 
 int main()
 {
@@ -628,7 +747,7 @@ int main()
     // for(int n:vec){
     //     cout<<n<<endl;
     // }
-    int arr[]={1,4,5,6,7,8};
+    int arr[]={6,7,8,3,1,0};
     int n=sizeof(arr)/sizeof(arr[0]);
     // int sum=7;
     // subarray(arr,n);
@@ -640,10 +759,14 @@ int main()
     // cout<<moorevotingmethod(vec);
     // int a=3;
     // cout<<power(a,4);
-    vector <int> prices = {7,3,5,2};
+    vector <int> prices = {1,1,4,4,6,6,7,8,8};
     // cout<<stocksproblem(prices)<<endl;
     // cout<<watercontainer(prices);
     // cout<<min(1,1);
-    productexceptself(prices);
+    // productexceptself(prices);
+    // cout<<bsbyrecursion(arr,5,0,n-1)<<endl;
+    // cout<<searchinrotatedsortedarray(arr , 0 , n-1 , 6);
+    // cout<<peakelement(prices);
+    cout<<singleelementinasortedarray(prices);
     return 0;
 }
