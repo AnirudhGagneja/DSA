@@ -616,21 +616,21 @@ int bsbyrecursion(int arr[] ,int target, int first , int last ){
     
     
 }
-int searchinrotatedsortedarray(int arr[] , int first , int end , int target){
-    while (first<=end)
-    {
-        int mid = end + (first-end)/2;
-        if (arr[mid] == target)
-        {
-            return mid;
-            /* code */
-        }
-        if(arr[first]<=arr[mid]){
-            //left sorted
-            }
-            else{
-                //right sorted
-            }
+// int searchinrotatedsortedarray(int arr[] , int first , int end , int target){
+//     while (first<=end)
+//     {
+//         int mid = end + (first-end)/2;
+//         if (arr[mid] == target)
+//         {
+//             return mid;
+//             /* code */
+//         }
+//         if(arr[first]<=arr[mid]){
+//             //left sorted
+//             }
+//             else{
+//                 //right sorted
+//             }
 
 
 
@@ -638,20 +638,20 @@ int searchinrotatedsortedarray(int arr[] , int first , int end , int target){
 
 
 
-    //     else if (arr[mid] > target && arr[first] > target)
-    //     {
-    //         first = mid+1;
-    //         /* code */
-    //     }
-    //     else if (arr[mid] < target && arr[end] < target )
-    //     {
-    //         end= mid-1;
-    //         /* code */
-    //     }
-    //     /* code */
-    // }
-    return -1;
-}}
+//     //     else if (arr[mid] > target && arr[first] > target)
+//     //     {
+//     //         first = mid+1;
+//     //         /* code */
+//     //     }
+//     //     else if (arr[mid] < target && arr[end] < target )
+//     //     {
+//     //         end= mid-1;
+//     //         /* code */
+//     //     }
+//     //     /* code */
+//     // }
+//     return -1;
+// }}
 int peakelement(vector <int>  &arr){
     int n = arr.size();
     int st=1,end=n-2;
@@ -720,7 +720,50 @@ int factorial(int n) {
     }
     return n * factorial(n - 1);
 }
-
+void bubblesort(vector <int> &vec){
+    int count = vec.size();
+    int temp;
+    for (int i = 0; i < count; i++)
+    {
+        for (int j = 0; j < count-i-1; j++)
+        {
+            if (vec[j]>vec[j+1])
+            {
+                swap(vec[j],vec[j+1]);
+                // temp=vec[i];
+                // vec[i] = vec[j];
+                // vec[j]=temp;
+                /* code */
+            }
+            
+            /* code */
+        }
+        
+        /* code */
+    }
+    
+}
+void selectionsort(vector <int> &arr){
+    int count = arr.size();
+    for (int i = 0; i < count-1; i++)
+    {
+        int sindex=i;
+        for (int j = i+1; j < count; j++)
+        {
+            if (arr[j]<arr[sindex])
+            {
+                sindex=j;
+                /* code */
+            }
+            
+            /* code */
+        }
+        swap(arr[i],arr[sindex]);
+        
+        /* code */
+    }
+    
+}
 int main()
 {
     // int n = 15;
@@ -759,7 +802,7 @@ int main()
     // cout<<moorevotingmethod(vec);
     // int a=3;
     // cout<<power(a,4);
-    vector <int> prices = {1,1,4,4,6,6,7,8,8};
+    vector <int> prices = {1,7,4,9,2,6,7,0,8};
     // cout<<stocksproblem(prices)<<endl;
     // cout<<watercontainer(prices);
     // cout<<min(1,1);
@@ -767,6 +810,14 @@ int main()
     // cout<<bsbyrecursion(arr,5,0,n-1)<<endl;
     // cout<<searchinrotatedsortedarray(arr , 0 , n-1 , 6);
     // cout<<peakelement(prices);
-    cout<<singleelementinasortedarray(prices);
+    // cout<<singleelementinasortedarray(prices);
+    // bubblesort(prices);
+    selectionsort(prices);
+    for (int i = 0; i < prices.size(); i++)
+    {
+        cout<<prices[i]<<" ";
+        /* code */
+    }
+    
     return 0;
 }
