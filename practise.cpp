@@ -764,6 +764,33 @@ void selectionsort(vector <int> &arr){
     }
     
 }
+// void insertionsort(vector <int> &vec){
+//     int count = vec.size();
+//     for (int i = 1; i < count; i++)
+//     {
+//         int current = arr[i];
+//         int prev = i-1;
+//         while (condition)
+//         {
+//             /* code */
+//         }
+        
+//         /* code */
+//     }
+    
+// }
+void stringrev(string &s){
+    int i =0 , j = s.length()-1;
+    while (i<=j)
+    {
+        swap(s[i++],s[j--]);
+        /* code */
+    }
+    // for(int val = 0 ; val <s.length();val++){
+    //     cout<<s[val];
+    // }
+    // cout<<" ";
+}
 int main()
 {
     // int n = 15;
@@ -812,12 +839,16 @@ int main()
     // cout<<peakelement(prices);
     // cout<<singleelementinasortedarray(prices);
     // bubblesort(prices);
-    selectionsort(prices);
-    for (int i = 0; i < prices.size(); i++)
-    {
-        cout<<prices[i]<<" ";
-        /* code */
-    }
-    
+    // selectionsort(prices);
+    // for (int i = 0; i < prices.size(); i++)
+    // {
+    //     cout<<prices[i]<<" ";
+    //     /* code */
+    // }
+    string s ="hello there";
+    stringrev(s);
+    cout<<s<<endl;
+    reverse(s.begin(),s.end());
+    cout<<s<<endl;
     return 0;
 }
