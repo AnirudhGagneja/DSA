@@ -791,8 +791,115 @@ void stringrev(string &s){
     // }
     // cout<<" ";
 }
+bool isprime2(int n){
+    for(int i =2 ; i <=n/2 ;i++){
+        if(n!=i && n%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+vector <int> digits(int n ){
+    vector <int> ans;
+    int temp,i=0;
+    while (n>0)
+    {
+        ans.push_back(n%10);
+        n/=10;
+        /* code */
+    }
+    return ans;
+}
+bool amstrong(int n ){
+    int temp=0,sum=0,a=n;
+    while (a!=0)
+    {
+        temp = a%10;
+        sum+=temp*temp*temp;
+        a/=10;
+        /* code */
+    }
+    cout<<sum<<endl;
+    if (sum==n)
+    {
+        return true;
+        /* code */
+    }
+    return false;
+    
+}
+int gcd2(int a , int b){
+    int gcd=1;
+    if (a==0)
+    {
+        return b;
+        /* code */
+    }
+    if (b==0)
+    {
+        return a;
+        /* code */
+    }
+    if (a>b)
+    {
+        return gcd2(a-b,b);
+        /* code */
+    }
+    else{
+        return gcd2(a,b-a);
+    }
+    
+    
+
+
+
+    // for (int i = 2; i <=min(a,b); i++)
+    // {
+    //     if (a%i==0 && b%i == 0)
+    //     {
+    //         gcd=i;
+    //         // return i;
+    //         /* code */
+    //     }
+        
+    //     /* code */
+    // }
+    return gcd;
+    
+}
+
+int lcm(int a , int b){
+    int lcm  = a*b/gcd2(a,b);
+    return lcm;
+}
+int rev(int n){
+    int t=0;
+    while (n!=0)
+    {
+        t = t*10 + n%10;
+        n/=10;
+        /* code */
+    }
+    
+    return t;
+}
+bool palindrome(int n){
+    
+    if (rev(n)==n)
+    {
+        return true;
+        /* code */
+    }
+    return false;
+    
+}
 int main()
 {
+    int q =8468;
+    rev(q);
+    cout<<q<<endl;
+    cout<<palindrome(q);
+    // cout<<lcm(33,99);
     // int n = 15;
     // for (int i = 0; i < n; i++)
     // {
@@ -845,10 +952,19 @@ int main()
     //     cout<<prices[i]<<" ";
     //     /* code */
     // }
-    string s ="hello there";
-    stringrev(s);
-    cout<<s<<endl;
-    reverse(s.begin(),s.end());
-    cout<<s<<endl;
+    // string s ="hello there";
+    // stringrev(s);
+    // cout<<s<<endl;
+    // reverse(s.begin(),s.end());
+    // cout<<s<<endl;
+    // cout<<isprime2(66);
+    // vector<int>ans = digits(2139);
+    // for(int num : ans){
+    //     cout<<num<<" ";
+    // }
+    // cout<<amstrong(153);
+
+
+
     return 0;
 }
