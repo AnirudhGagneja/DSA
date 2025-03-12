@@ -893,76 +893,162 @@ bool palindrome(int n){
     return false;
     
 }
+void linearsearch2d(int arr[][3]  , int n , int m , int key){
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            if (arr[i][j] == key)
+            {
+                cout<<i<<" "<<j<<endl;
+                /* code */
+            }
+            
+            /* code */
+        }
+        
+        /* code */
+    }
+    
+}
+int maxroworcolumnsumin2d(int arr[][3] , int n , int m){
+    int maxsum=0;
+    for (int i = 0; i < n; i++)
+    {
+        int sum=0;
+        for (int j = 0; j < m; j++)
+        {
+            sum+=arr[j][i];
+            maxsum=max(sum,maxsum);
+            /* code */
+        }
+        
+        /* code */
+    }
+    return maxsum;
+    
+}
+int diagonalsum(int arr[][3] , int n){
+    int sum=0;
+    for (int i = 0; i < n; i++)
+    {
+
+        for (int j = 0; j < n; j++)
+        {
+            if (i==j)
+            {
+                sum+=arr[i][i];
+                /* code */
+            }
+            if (j==n-i-1)
+            {
+                sum+=arr[i][j];
+                /* code */
+            }
+            
+            /* code */
+        }
+        
+        
+        /* code */
+    }
+    return sum;
+}
 int main()
 {
-    int q =8468;
-    rev(q);
-    cout<<q<<endl;
-    cout<<palindrome(q);
-    // cout<<lcm(33,99);
-    // int n = 15;
-    // for (int i = 0; i < n; i++)
-    // {
-    //     if (prime(i))
-    //     {
-    //         cout<<i<<" ";
-    //     }
-    // }
-    // cout<<sumdiv3(n)<<endl;
-    // cout<<fact(5)<<endl;
-    // squarepattern(3);
-    // trianglepattern(4);
-    // revtripattern(4);
-    // invertedtriangle(4);
-    // pyramidpattern(4);
-    // hollowdiamond(4);
-    // startriangle(7);
-    // cout<<poweroftwo(7)<<endl;
-    vector <int> vec = {3,2,3,2,2,2};
-    // singlenumber(vec);
-    // revavector(vec);
-    // for(int n:vec){
-    //     cout<<n<<endl;
-    // }
-    int arr[]={6,7,8,3,1,0};
-    int n=sizeof(arr)/sizeof(arr[0]);
-    // int sum=7;
-    // subarray(arr,n);
-    // cout<<maxsubarraysum(arr,n)<<endl; //O(n^2)
-    // cout<<kadanestheorm(arr,n)<<endl;//O(n)
-    // pairsum(arr,n,9);
-    // majorityelement(vec);
-    // cout<<majorityelementbysort(vec);
-    // cout<<moorevotingmethod(vec);
-    // int a=3;
-    // cout<<power(a,4);
-    vector <int> prices = {1,7,4,9,2,6,7,0,8};
-    // cout<<stocksproblem(prices)<<endl;
-    // cout<<watercontainer(prices);
-    // cout<<min(1,1);
-    // productexceptself(prices);
-    // cout<<bsbyrecursion(arr,5,0,n-1)<<endl;
-    // cout<<searchinrotatedsortedarray(arr , 0 , n-1 , 6);
-    // cout<<peakelement(prices);
-    // cout<<singleelementinasortedarray(prices);
-    // bubblesort(prices);
-    // selectionsort(prices);
-    // for (int i = 0; i < prices.size(); i++)
-    // {
-    //     cout<<prices[i]<<" ";
-    //     /* code */
-    // }
-    // string s ="hello there";
-    // stringrev(s);
-    // cout<<s<<endl;
-    // reverse(s.begin(),s.end());
-    // cout<<s<<endl;
-    // cout<<isprime2(66);
-    // vector<int>ans = digits(2139);
-    // for(int num : ans){
-    //     cout<<num<<" ";
-    // }
-    // cout<<amstrong(153);
+    int arr2d[3][3]={{1,2,3},{4,5,6},{7,8,9}};
+    int n = 3,m=3;
+    // linearsearch2d(arr2d ,3,3,7);
+    cout<<maxroworcolumnsumin2d(arr2d ,n,m )<<endl;
+    cout<<diagonalsum(arr2d , n);
+    
+    
+    
+    
+    // // for (int i = 0; i < 3; i++)
+    // // {
+    // //     for (int j = 0; j < 3; j++)
+    // //     {
+    // //         cout<<arr2d[i][j]<<" ";
+    // //         /* code */
+    // //     }
+    // //     cout<<endl;
+        
+    // //     /* code */
+    // // }
+    
+
+
+
+
+    // // int q =8468;
+    // // rev(q);
+    // // cout<<q<<endl;
+    // // cout<<palindrome(q);
+    // // cout<<lcm(33,99);
+    // // int n = 15;
+    // // for (int i = 0; i < n; i++)
+    // // {
+    // //     if (prime(i))
+    // //     {
+    // //         cout<<i<<" ";
+    // //     }
+    // // }
+    // // cout<<sumdiv3(n)<<endl;
+    // // cout<<fact(5)<<endl;
+    // // squarepattern(3);
+    // // trianglepattern(4);
+    // // revtripattern(4);
+    // // invertedtriangle(4);
+    // // pyramidpattern(4);
+    // // hollowdiamond(4);
+    // // startriangle(7);
+    // // cout<<poweroftwo(7)<<endl;
+    // vector <int> vec = {3,2,3,2,2,2};
+    // // singlenumber(vec);
+    // // revavector(vec);
+    // // for(int n:vec){
+    // //     cout<<n<<endl;
+    // // }
+    // int arr[]={6,7,8,3,1,0};
+    // int n=sizeof(arr)/sizeof(arr[0]);
+    // // int sum=7;
+    // // subarray(arr,n);
+    // // cout<<maxsubarraysum(arr,n)<<endl; //O(n^2)
+    // // cout<<kadanestheorm(arr,n)<<endl;//O(n)
+    // // pairsum(arr,n,9);
+    // // majorityelement(vec);
+    // // cout<<majorityelementbysort(vec);
+    // // cout<<moorevotingmethod(vec);
+    // // int a=3;
+    // // cout<<power(a,4);
+    // vector <int> prices = {1,7,4,9,2,6,7,0,8};
+    // // cout<<stocksproblem(prices)<<endl;
+    // // cout<<watercontainer(prices);
+    // // cout<<min(1,1);
+    // // productexceptself(prices);
+    // // cout<<bsbyrecursion(arr,5,0,n-1)<<endl;
+    // // cout<<searchinrotatedsortedarray(arr , 0 , n-1 , 6);
+    // // cout<<peakelement(prices);
+    // // cout<<singleelementinasortedarray(prices);
+    // // bubblesort(prices);
+    // // selectionsort(prices);
+    // // for (int i = 0; i < prices.size(); i++)
+    // // {
+    // //     cout<<prices[i]<<" ";
+    // //     /* code */
+    // // }
+    // // string s ="hello there";
+    // // stringrev(s);
+    // // cout<<s<<endl;
+    // // reverse(s.begin(),s.end());
+    // // cout<<s<<endl;
+    // // cout<<isprime2(66);
+    // // vector<int>ans = digits(2139);
+    // // for(int num : ans){
+    // //     cout<<num<<" ";
+    // // }
+    // // cout<<amstrong(153);
 
 
 
