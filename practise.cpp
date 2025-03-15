@@ -933,34 +933,41 @@ int diagonalsum(int arr[][3] , int n){
     for (int i = 0; i < n; i++)
     {
 
-        for (int j = 0; j < n; j++)
-        {
-            if (i==j)
-            {
-                sum+=arr[i][i];
-                /* code */
-            }
-            if (j==n-i-1)
-            {
-                sum+=arr[i][j];
-                /* code */
-            }
-            
-            /* code */
-        }
-        
+       sum+=arr[i][i];
+       if(i!=n-i-1)
+        sum+=arr[i][n-i-1];
         
         /* code */
     }
     return sum;
 }
+void traversalof2dvector ( vector <vector<int>> vec ){
+    for (int i = 0; i < vec.size(); i++)
+    {
+        for (int j = 0; j < vec[i].size(); j++)
+        {
+            cout<<vec[i][j]<<" ";
+            /* code */
+        }
+        cout<<endl;
+        /* code */
+    }
+}
+
+
+
 int main()
 {
-    int arr2d[3][3]={{1,2,3},{4,5,6},{7,8,9}};
-    int n = 3,m=3;
-    // linearsearch2d(arr2d ,3,3,7);
-    cout<<maxroworcolumnsumin2d(arr2d ,n,m )<<endl;
-    cout<<diagonalsum(arr2d , n);
+    vector <vector<int>> vec ={{1,2,3},{4,5,6},{7,8,9}};
+    traversalof2dvector(vec);
+    
+
+
+    // int arr2d[3][3]={{1,2,3},{4,5,6},{7,8,9}};
+    // int n = 3,m=3;
+    // // linearsearch2d(arr2d ,3,3,7);
+    // // cout<<maxroworcolumnsumin2d(arr2d ,n,m )<<endl;
+    // cout<<diagonalsum(arr2d , n);
     
     
     
