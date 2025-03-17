@@ -611,7 +611,7 @@ int bsbyrecursion(int arr[] ,int target, int first , int last ){
         return bsbyrecursion(arr , target , first , mid-1);
         /* code */
     }
-    else return bsbyrecursion(arr,target,mid+1,last);
+     return bsbyrecursion(arr,target,mid+1,last);
 
     
     
