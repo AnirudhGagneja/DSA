@@ -953,15 +953,35 @@ void traversalof2dvector ( vector <vector<int>> vec ){
         /* code */
     }
 }
-
+int countinversions(vector <int> arr ){
+    int count=0;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        for (int j = i+1; j < arr.size(); j++)
+        {
+            if (arr[i]>arr[j])
+            {
+                count++;
+                /* code */
+            }
+            
+            /* code */
+        }
+        
+        /* code */
+    }
+    return count;
+    
+}
 
 
 int main()
 {
-    vector <vector<int>> vec ={{1,2,3},{4,5,6},{7,8,9}};
-    traversalof2dvector(vec);
+    // vector <vector<int>> vec ={{1,2,3},{4,5,6},{7,8,9}};
+    // traversalof2dvector(vec);
     
-
+    vector<int> arr={2,3,5,7,2,1};
+    cout<<countinversions(arr);
 
     // int arr2d[3][3]={{1,2,3},{4,5,6},{7,8,9}};
     // int n = 3,m=3;
