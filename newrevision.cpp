@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 using namespace std;
 void hollowdiamond(int count){
     for (int i = 0; i < count; i++)
@@ -134,9 +135,61 @@ void func(int count)
         /* code */
     }
 }
+bool prime(int n){
+    if (n==1 || n==0)
+    {
+        return false;
+        /* code */
+    }
+    
+    for (int i = 2; i*i <=n; i++)
+    {
+        if (n%i==0)
+        {
+            return false;
+            /* code */
+        }
+        
+        /* code */
+    }
+    return true;
+}
+
+int decitobi(int n){
+    int ans=0;
+    int a=0,i=0;
+    while (n!=0)
+    {
+        a = n%2;
+        n=n/2;
+        ans = ans+a*pow(10,i++);
+        /* code */
+    }
+    return ans;
+}
+int bitodeci(int n){
+    int ans=0;
+    int a=0,i=0;
+    while (n!=0)
+    {
+        a=n%10;
+        n=n/10;
+        ans = ans + a*pow(2,i++);
+        /* code */
+    }
+    return ans;
+}
 int main()
 {
+    int n=20;
     // hollowdiamond(4);
-    cout<<nCr(5,3);
+    // cout<<nCr(5,3);
+    for (int i = 0; i < 16; i++)
+    {
+        cout<<decitobi(i)<<endl;
+        
+       cout<<bitodeci(decitobi(i))<<endl;
+    }
+    
     return 0;
 }
