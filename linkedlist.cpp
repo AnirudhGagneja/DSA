@@ -46,8 +46,10 @@ public:
             cout<<"EMPTY";
             return -1;
         }
+        node* temp= head;
         int val = head->data;
         head= head->next;
+        delete temp;
         return val;
     }
     int pop_back(){
@@ -68,8 +70,28 @@ public:
         
         return val;
     }
-
-
+    void insert(int val , int n){
+        node* temp = head ; 
+        for (int i = 0; i < n-1; i++)
+        {
+            temp= temp->next;
+            /* code */
+        }
+        node* newnode = new node(val);
+        newnode->next = temp->next;
+        temp->next = newnode;
+    }
+    int search(int n){
+        node* temp =head;
+        int count=0;
+        while (temp->data!=n)
+        {
+            temp= temp->next;
+            count++;
+            /* code */
+        }
+        return count;
+    }
     void print(){
         node* temp = head;
     while (temp!=NULL)
@@ -78,7 +100,23 @@ public:
         temp = temp->next;
         /* code */
     }
-    cout<<"NULL";
+    cout<<"NULL"<<endl;
+    }
+
+    void reverse(){
+        node *current = head;
+        node *prev = NULL;
+        node *next = NULL;
+        while (current!=NULL)
+        {
+            next = current->next;
+            current->next = prev;
+            prev = current;
+            current = next;
+            /* code */
+        }
+        head=prev;
+         
     }
 };
 int main() {
@@ -89,8 +127,14 @@ int main() {
     l1.push_front(3);
     l1.push_back(4);
     l1.push_back(5);
-    cout<<l1.pop_front()<<endl;
-    cout<<l1.pop_back()<<endl;
+    
+    // cout<<l1.pop_front()<<endl;
+    // cout<<l1.pop_back()<<endl;
+    // l1.print();
+    // l1.insert(7,3);
+    // cout<<l1.search(10)<<endl;
+    l1.print();
+    l1.reverse();
     l1.print();
     return 0;
 }
