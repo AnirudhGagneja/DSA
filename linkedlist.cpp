@@ -118,6 +118,38 @@ public:
         head=prev;
          
     }
+    int size(){
+        node * temp = head;
+        int size=0;
+        while (temp!=NULL)
+        {
+            size++;
+            temp = temp->next;
+            /* code */
+        }
+        return size;
+    }
+    bool hascycle(){
+        node* t1 = head;
+        node* t2 = head;
+        while (t2!=NULL && t2->next!=NULL)
+        {
+            t1=t1->next;
+            t2->next->next;
+            if (t1==t2)
+            {
+                return true;
+                /* code */
+            }
+            return false;
+            /* code */
+        }
+        
+    }
+    void createcycle(){
+        tail->next = head;
+    }
+
 };
 int main() {
     linkedlist l1;
@@ -136,5 +168,9 @@ int main() {
     l1.print();
     l1.reverse();
     l1.print();
+    cout<<l1.size()<<endl;
+    cout<<l1.hascycle()<<endl;
+    l1.createcycle();
+    cout<<l1.hascycle()<<endl;
     return 0;
 }
