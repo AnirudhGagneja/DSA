@@ -973,7 +973,20 @@ int countinversions(vector <int> arr ){
     return count;
     
 }
-
+vector<int> twoSum(vector<int>& nums, int target) {
+    int n =nums.size();
+    vector<int> ans;
+   for(int i =0 ; i < n ;i++){
+    for(int j =i+1 ; j<n ;j++){
+        if(nums[i]+nums[j]==target){
+            ans.push_back(i);
+            ans.push_back(j);
+            return ans;
+        }
+    }
+   }
+   return ans;
+}
 
 int main()
 {
@@ -981,8 +994,10 @@ int main()
     // traversalof2dvector(vec);
     
     vector<int> arr={2,3,5,7,2,1};
-    cout<<countinversions(arr);
-
+    vector<int> ans= twoSum(arr,9);
+    for(int i: ans){
+        cout<<i<<" ";
+    }
     // int arr2d[3][3]={{1,2,3},{4,5,6},{7,8,9}};
     // int n = 3,m=3;
     // // linearsearch2d(arr2d ,3,3,7);

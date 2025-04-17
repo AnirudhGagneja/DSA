@@ -1,9 +1,9 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-int binary(int a[], int n, int val)
+int binary(vector<int> &vac , int val)
 {
-    int first = 0, last = n-1;
+    int first = 0, last = vac.size()-1;
     
     while (first<=last)
     {
