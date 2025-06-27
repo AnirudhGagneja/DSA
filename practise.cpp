@@ -2,7 +2,8 @@
 #include <math.h>
 #include <vector>
 #include <algorithm>
-#include <maps>
+#include <unordered_map>
+
 using namespace std;
 
 bool prime(int n)
@@ -401,6 +402,26 @@ void majorityelement( vector <int> & vec){
         
     }
 }
+int majorityelementhashmap(vector<int> arr){
+    unordered_map<int,int>freq;
+    int count=arr.size();
+    for (int i = 0; i < count; i++)
+    {
+        
+        
+            freq[arr[i]]++;
+            /* code */
+        
+        if (freq[arr[i]]>count/2)
+        {
+            return arr[i];
+            /* code */
+        }
+        
+        /* code */
+    }
+    return -1;
+}
 int majorityelementbysort(vector <int> &vec){
     
     sort(vec.begin(), vec.end());
@@ -427,6 +448,9 @@ int majorityelementbysort(vector <int> &vec){
     return ans;
 }
 // 1,2,1,2,2,2
+
+
+
 int moorevotingmethod(vector <int> &vec){
     int count=vec.size();
     int freq=0,ans=0;
@@ -988,17 +1012,54 @@ vector<int> twoSum(vector<int>& nums, int target) {
    }
    return ans;
 }
-
+void printsubarrays(vector <int> arr){
+    int count = arr.size();
+    for (int i = 0; i < count; i++)
+    {
+        for (int  j= i; j < count; j++)
+        {
+            for (int k = i; k <= j; k++)
+            {
+                cout<<arr[k];
+                
+            }
+            cout<<" ";
+            
+        }
+        cout<<endl;
+        
+    }
+    
+}
+void subarrays(vector<int> arr){
+    int count = arr.size(),maxsum = 0;
+    for (int i = 0; i < count; i++)
+    {
+        int currentsum =0 ;
+        for (int j = i; j < count; j++)
+        {
+            currentsum+=arr[j];
+            /* code */
+        }
+        maxsum=max(maxsum,currentsum);
+    }
+    cout<<maxsum;
+}
 int main()
 {
+    
+    
     // vector <vector<int>> vec ={{1,2,3},{4,5,6},{7,8,9}};
     // traversalof2dvector(vec);
     
-    vector<int> arr={2,3,5,7,2,1};
-    vector<int> ans= twoSum(arr,9);
-    for(int i: ans){
-        cout<<i<<" ";
-    }
+    vector<int> arr={2,-3,5,2,2,2};
+    // vector<int> ans= twoSum(arr,9);
+    // for(int i: ans){
+    //     cout<<i<<" ";
+    // }
+    // printsubarrays(arr);
+    cout<<majorityelementhashmap(arr);
+    // subarrays(arr);
     // int arr2d[3][3]={{1,2,3},{4,5,6},{7,8,9}};
     // int n = 3,m=3;
     // // linearsearch2d(arr2d ,3,3,7);
