@@ -28,11 +28,11 @@ class queue
         }
         return false;
     }
-    void pop(){
+    int pop(){
         if (isempty())
         {
             cout<<"overflow";
-            return;
+            return ;
         }
         if (head->next==NULL && tail->next==NULL)
         {
@@ -40,6 +40,10 @@ class queue
             head=NULL;
             tail=NULL;
             /* code */
+        }
+        else
+        {
+
         }
         
     }
