@@ -103,7 +103,7 @@ public:
     cout<<"NULL"<<endl;
     }
 
-    void reverse(){
+    void reverse(){ 
         node *current = head;
         node *prev = NULL;
         node *next = NULL;
