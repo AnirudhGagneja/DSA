@@ -2,7 +2,9 @@
     "C_Cpp.default.compilerPath": "C:\\msys64\\ucrt64\\bin\\gcc.exe",
     "files.associations": {
         "iostream": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "string": "cpp",
+        "format": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

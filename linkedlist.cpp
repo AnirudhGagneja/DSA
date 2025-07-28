@@ -118,7 +118,7 @@ public:
         head=prev;
          
     }
-    int size(){
+    int size(){ 
         node * temp = head;
         int size=0;
         while (temp!=NULL)
