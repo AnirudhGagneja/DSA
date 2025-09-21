@@ -18,6 +18,41 @@ void squarepattern(int count){
     }
     
 }
+void alphabetpattern(int n){
+    for (int i = 0; i < n; i++)
+    {
+        for(int j =0 ;j<n-i-1;j++){
+            cout<<" ";
+        }
+        cout<<"*";
+        if(i!=0){
+        for(int j=0;j<2*i-1;j++){
+            
+            if(i==2 && j==1){
+                cout<<"*";
+            }else{
+                cout<<" ";
+            }
+        }
+        cout<<"*";
+    }
+        for(int j =0 ;j<n-i;j++){
+            cout<<" ";
+        }
+        cout<<"*";
+        for(int j=0;j<i;j++){
+            cout<<" ";
+        }
+        cout<<"*";
+        for(int j=0;j<n-i-1;j++){
+            cout<<" ";
+        }
+        cout<<"*";
+        cout<<endl;
+        /* code */
+    }
+    
+}
 void trianglepattern(int count){
     char ch='a';
     
@@ -202,12 +237,6 @@ void hollowsquare(int count){
 }
 
 int main() {
-    // squarepattern(4);
-    // trianglepattern(4);
-    // invertedtri(4);
-    pyrammidpattern(4);
-    // hollowdiamond(4);
-    // hollowdiagram(4);
-    // hollowsquare(6);
+    alphabetpattern(4);
     return 0;
 }

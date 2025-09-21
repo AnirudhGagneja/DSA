@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-int sumcheck(int a[], int n, int sum)
+bool sumcheck(int a[], int n, int sum)
 {
     bool sumpresent = false;
     for (int i = 0; i <= n/2; i++)
