@@ -1047,18 +1047,18 @@ void subarrays(vector<int> arr){
 }
 int main()
 {
-    
+    hollowdiamond(4);
     
     // vector <vector<int>> vec ={{1,2,3},{4,5,6},{7,8,9}};
     // traversalof2dvector(vec);
     
-    vector<int> arr={2,-3,5,2,2,2};
+    // vector<int> arr={2,-3,5,2,2,2};
     // vector<int> ans= twoSum(arr,9);
     // for(int i: ans){
     //     cout<<i<<" ";
     // }
     // printsubarrays(arr);
-    cout<<majorityelementhashmap(arr);
+    // cout<<majorityelementhashmap(arr);
     // subarrays(arr);
     // int arr2d[3][3]={{1,2,3},{4,5,6},{7,8,9}};
     // int n = 3,m=3;
