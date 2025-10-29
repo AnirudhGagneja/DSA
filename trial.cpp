@@ -73,8 +73,8 @@ int height(node*root){
     if(root==NULL)return 0;
     int left = height(root->left);
     int right = height(root->right);
-
-    return left+right+1;
+    d = max(d, left+right);
+    return max(left,right)+1;
 
 }
 int sum(node* root){
@@ -96,8 +96,15 @@ bool issubtree(node* root , node* subroot){
 }
 int diameter(node* root){
     if(root==NULL)return 0;
-    int len = height(root->right)+height(root->left)-1;
+    int len = height(root->right)+height(root->left);
     return max(max(diameter(root->left),len),diameter(root->right));
+}
+int diameterbyh(node* root){
+    height(root);
+    return d;
+}
+int topview(node* root){
+    
 }
 int main() {
    int preorderarr[] = {1,2,-1,-1,3,4,-1,-1,5,-1,-1};
@@ -110,6 +117,6 @@ int main() {
     // levelorder(root);
     // seplevelorder(root);
     // cout<<sum(root);
-    cout<<diameter(root);
+    cout<<diameterbyh(root);
     return 0;
 }

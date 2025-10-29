@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include<map>
 using namespace std;
 
 class node{
@@ -127,13 +128,32 @@ static int idx=-1;
         int len = height(root->left) + height(root->right);
         return max(max(len,diameteroftree(root->left)),diameteroftree(root->right));
     }
+    void topview(node* root){
+    queue<pair<node*,int>> q;
+        map<int,int>m;
+        q.push({root,0});
+        while(q.size()>0){
+            node* curr = q.front().first;
+            int currval = q.front().second;
+            q.pop();
+            if(m.find(currval)==m.end()){
+                m[currval] = curr->data; 
+            }
+            if(curr->left!=NULL)q.push({curr->left,currval-1});
+            if(curr->right!=NULL)q.push({curr->right,currval+1});
+        }
+        for(auto i:m){
+            cout<<i.second<<" ";
+        }
+}
 int main() {
     vector<int> preorderarr={1,2,-1,-1,3,4,-1,-1,5,-1,-1};
     node* root = buildtree(preorderarr);
     idx=-1;
     vector<int> preordersubarr={1,3,-1,-1,4,5,-1,-1,-1};
     node* q = buildtree(preordersubarr);
-    cout<<diameteroftree(root);
+    // cout<<diameteroftree(root);
+    topview(root);
 
     return 0;
 }
