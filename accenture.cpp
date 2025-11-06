@@ -1,7 +1,10 @@
 #include <iostream>
 #include <vector>
-#include <bits/stdc++.h>
-#include<algorithm>
+#include <algorithm>
+#include <string>
+#include <unordered_map>
+#include <climits>
+#include <cstdlib>
 using namespace std;
 
 int ratfood(int r, int unit, vector<int> arr)
@@ -175,32 +178,32 @@ int productsmallestpair(int sum, int arr[],int n)
 }
 
 
-string nnotations(int num , int div){
-    char modmap[div];
-    char ch = 'A';
-    for (int i = 0; i < div; i++)
-    {
+// string nnotations(int num , int div){
+//     // char modmap[div];
+//     char ch = 'A';
+//     for (int i = 0; i < div; i++)
+//     {
         
-        if(i<=9){
-            modmap[i]='0'+i ;
-        }
-        else{
-            modmap[i] = ch++;
-        }
-        /* code */
-    }
-    int r;
-    string ans= "";
-    while (num!=0)
-    {
-        r=num%div;
-        num/=div;
-        ans =  modmap[r]+ans;
-        /* code */
-    }
+//         if(i<=9){
+//             modmap[i]='0'+i ;
+//         }
+//         else{
+//             modmap[i] = ch++;
+//         }
+//         /* code */
+//     }
+//     int r;
+//     string ans= "";
+//     while (num!=0)
+//     {
+//         r=num%div;
+//         num/=div;
+//         ans =  modmap[r]+ans;
+//         /* code */
+//     }
     
-    return ans;
-}
+//     return ans;
+// }
 string moveit(string str){
     string ans ="";
     for (int i = 0; i < str.length(); i++)

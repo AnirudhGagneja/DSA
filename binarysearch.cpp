@@ -25,6 +25,8 @@ int binarysearch(vector <int> arr , int val)
     return -1;
 }
 int main() {
+
+    
     vector<int>arr ={2,3,5,6,7,8,12,23};
     cout<<binarysearch(arr,8);
     return 0;
