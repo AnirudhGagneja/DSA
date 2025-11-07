@@ -24,6 +24,13 @@ node* buildtree(int preorder[])
     root->right = buildtree(preorder);
     return root;
 }
+void preorder(node *root){
+    if (root==NULL)return;
+    cout<<root->data;
+    preorder(root->left);
+    preorder(root->right);
+}
+
 int main() {
    int preorderarr[] = {1,2,-1,-1,3,4,-1,-1,5,-1,-1};
    node* root = buildtree(preorderarr);
@@ -31,11 +38,11 @@ int main() {
 //    preorderarr[0]=3;
    node* q = buildtree(preorderarr);
 //    cout<<root->data;
-    // preorder(root);
+    preorder(root);
     // levelorder(root);
     // seplevelorder(root);
     // cout<<sum(root);
     // cout<<diameterbyh(root);
-    cout<<"working";
+    // cout<<"working";
     return 0;
 }
