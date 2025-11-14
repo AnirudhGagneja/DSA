@@ -152,8 +152,8 @@ int main() {
     idx=-1;
     vector<int> preordersubarr={1,3,-1,-1,4,5,-1,-1,-1};
     node* q = buildtree(preordersubarr);
-    // cout<<diameteroftree(root);
-    topview(root);
+    cout<<diameteroftree(root);
+    // topview(root);
 
     return 0;
 }
