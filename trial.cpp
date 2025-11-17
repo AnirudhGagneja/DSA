@@ -1,6 +1,7 @@
 #include <iostream>
 #include <queue>
 #include <map>
+
 using namespace std;
 
 class node{
@@ -83,6 +84,24 @@ int diameter (node* root){
     height(root);
     return ans;
 }
+void topview(node* root){
+    queue<pair<node* , int>> q;
+    map <int,int>m;
+    q.push({root ,0});
+    while(q.size()>0){
+        node* temp = q.front().first;
+        int tempval  = q.front().second;
+        q.pop();
+        if(m.find(tempval) == m.end()){
+            m[tempval] = temp->data;
+        }
+        if(temp->left!=NULL)q.push({temp->left , tempval-1});
+        if(temp->right!=NULL)q.push({temp->right , tempval+1});
+    }
+    for(auto val: m){
+        cout<<val.second<<" ";
+    }
+}
 int main() {
    int preorderarr[] = {1,2,-1,-1,3,4,-1,-1,5,-1,-1};
    node* root = buildtree(preorderarr);
@@ -94,9 +113,9 @@ int main() {
     // levelorder(root);
     // seplevelorder(root);
     // cout<<sum(root);
-    cout<<diameter(root);
+    // cout<<diameter(root);
     // cout<<"working";
     // cout<<issubtree(root,q);
-    // topview(root);
+    topview(root);
     return 0;
 }
