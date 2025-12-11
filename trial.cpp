@@ -102,6 +102,16 @@ void topview(node* root){
         cout<<val.second<<" ";
     }
 }
+void kthlevel(node* root , int k){
+    if(root==NULL)return;
+    if(k==1){
+        cout<<root->data<<" ";
+        return;
+    }
+    kthlevel(root->left ,k-1);
+    kthlevel(root->right ,k-1);
+
+}
 int main() {
    int preorderarr[] = {1,2,-1,-1,3,4,-1,-1,5,-1,-1};
    node* root = buildtree(preorderarr);
@@ -116,6 +126,7 @@ int main() {
     // cout<<diameter(root);
     // cout<<"working";
     // cout<<issubtree(root,q);
-    topview(root);
+    // topview(root);
+    kthlevel(root,3);
     return 0;
 }

@@ -146,13 +146,23 @@ static int idx=-1;
             cout<<i.second<<" ";
         }
 }
+void kthlevel(node* root , int k){
+    if(root==NULL)return;
+    if(k==1){
+        cout<<root->data<<" ";
+        return;
+    }
+    kthlevel(root->left , k-1);
+    kthlevel(root->right , k-1);
+}
 int main() {
     vector<int> preorderarr={1,2,-1,-1,3,4,-1,-1,5,-1,-1};
     node* root = buildtree(preorderarr);
     idx=-1;
     vector<int> preordersubarr={1,3,-1,-1,4,5,-1,-1,-1};
     node* q = buildtree(preordersubarr);
-    cout<<diameteroftree(root);
+    // cout<<diameteroftree(root);
+    kthlevel(root , height(root));
     // topview(root);
 
     return 0;
