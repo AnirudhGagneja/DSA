@@ -85,31 +85,31 @@ int diameter (node* root){
     return ans;
 }
 void topview(node* root){
-    queue<pair<node* , int>> q;
-    map <int,int>m;
-    q.push({root ,0});
+    queue<pair<node*,int>>q;
+    map<int,int>m;
+    q.push({root,0});
     while(q.size()>0){
-        node* temp = q.front().first;
-        int tempval  = q.front().second;
+        node* curr = q.front().first;
+        int currval = q.front().second;
         q.pop();
-        if(m.find(tempval) == m.end()){
-            m[tempval] = temp->data;
+        if(m.find(currval) == m.end()){
+            m[currval] = curr->data;
         }
-        if(temp->left!=NULL)q.push({temp->left , tempval-1});
-        if(temp->right!=NULL)q.push({temp->right , tempval+1});
+        if(curr->left!=NULL)q.push({curr->left , currval-1});
+        if(curr->right!=NULL)q.push({curr->right , currval+1});
     }
-    for(auto val: m){
+    for(auto val : m){
         cout<<val.second<<" ";
     }
 }
-void kthlevel(node* root , int k){
+void kthlevel(node* root , int k ){
     if(root==NULL)return;
     if(k==1){
         cout<<root->data<<" ";
         return;
     }
-    kthlevel(root->left ,k-1);
-    kthlevel(root->right ,k-1);
+     kthlevel(root->left , k-1);
+         kthlevel(root->right , k-1);
 
 }
 int main() {
