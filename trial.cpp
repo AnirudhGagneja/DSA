@@ -1,132 +1,52 @@
 #include <iostream>
-#include <queue>
-#include <map>
+#include<vector>
 
 using namespace std;
-
 class node{
-public: 
-int data;
-node* left ;
-node* right;
-node(int val){
-    data = val;
-    left=right=NULL;
-}
-
+    public:
+    int data;
+    node* left;
+    node* right;
+    node(int val){
+        data = val;
+        left = right = NULL;
+    }
 };
-static int idx=-1;
-node* buildtree(int preorder[]){
-    idx++;
-    if(preorder[idx]==-1)return NULL;
-    node* root = new node(preorder[idx]);
-    root->left= buildtree(preorder);
-    root->right = buildtree(preorder);
+node* insert ( node* root , int val){
+    if(root==NULL){
+        
+        return new node(val);
+    }
+    if(val < root->data )root->left = insert(root->left , val);
+    if(val > root->data )root->right = insert(root->right , val);
     return root;
 }
-void preorder(node* root){
+node* buildbst(vector<int>&arr){
+    node* root= NULL;
+    for(auto i : arr){
+       root = insert(root,i);
+    }
+    return root;
+}
+void inorder(node* root){
     if(root==NULL)return;
-    cout<<root->data;
-    preorder(root->left);
-    preorder(root->right);
-
+    inorder( root->left);
+    cout<<root->data<<" ";
+    inorder( root->right);
 }
-void levelorder(node* root){
-    queue<node*> q;
-    q.push(root);
-    while(q.size()>0){
-        node* temp = q.front();
-        q.pop();
-        cout<<temp->data;
-        if(temp->left!=NULL)q.push(temp->left);
-        if(temp->right!=NULL)q.push(temp->right);
+node* search(node* root,int target){
+    if(root->data==target)return root;
+    else if(root->data<target) return search(root->right , target);
+    else{
+        return search(root->left,target);
     }
-
-}
-
-void seplevelorder(node* root){
-queue<node*> q;
-q.push(root);
-q.push(NULL);
-while(q.size()>0){
-    node* temp = q.front();
-    q.pop();
-    if(temp==NULL){
-        if(q.size()>0){
-            q.push(NULL);
-            cout<<endl;
-            continue;
-        }
-        else{
-            break;
-        }
-
-    }
-    cout<<temp->data;
-    if(temp->left!=NULL)q.push(temp->left);
-    if(temp->right!=NULL)q.push(temp->right);
-}
-
-}
-int sum(node* root){
-    if(root==NULL)return 0;
-    return sum(root->left) + sum(root->right) + root->data;
-}
-int ans =0;
-int height(node* root){
-    if(root==NULL)return 0;
-    int left = height(root->left);
-    int right =  height(root->right);
-    ans= max(ans , left+right);
-    return max( left,right)+1;
-}
-int diameter (node* root){
-    height(root);
-    return ans;
-}
-void topview(node* root){
-    queue<pair<node*,int>>q;
-    map<int,int>m;
-    q.push({root,0});
-    while(q.size()>0){
-        node* curr = q.front().first;
-        int currval = q.front().second;
-        q.pop();
-        if(m.find(currval) == m.end()){
-            m[currval] = curr->data;
-        }
-        if(curr->left!=NULL)q.push({curr->left , currval-1});
-        if(curr->right!=NULL)q.push({curr->right , currval+1});
-    }
-    for(auto val : m){
-        cout<<val.second<<" ";
-    }
-}
-void kthlevel(node* root , int k ){
-    if(root==NULL)return;
-    if(k==1){
-        cout<<root->data<<" ";
-        return;
-    }
-     kthlevel(root->left , k-1);
-         kthlevel(root->right , k-1);
-
 }
 int main() {
-   int preorderarr[] = {1,2,-1,-1,3,4,-1,-1,5,-1,-1};
-   node* root = buildtree(preorderarr);
-   idx=-1;
-//    preorderarr[0]=3;
-   node* q = buildtree(preorderarr);
-//    cout<<height(root);
-    // preorder(root);
-    // levelorder(root);
-    // seplevelorder(root);
-    // cout<<sum(root);
-    // cout<<diameter(root);
-    // cout<<"working";
-    // cout<<issubtree(root,q);
-    // topview(root);
-    kthlevel(root,3);
+    vector<int>arr =  {4,2,1,3,5,6,7};
+    node* root = buildbst(arr);
+    inorder(root);
+    node* ans= search(root,6);
+    cout<<endl<<ans->data;
+
     return 0;
 }
