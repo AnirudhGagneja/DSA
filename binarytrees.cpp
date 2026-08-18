@@ -14,7 +14,6 @@ class node{
         data = val;
         left = right = NULL;
     }
-
     
 };
 //using preorder
